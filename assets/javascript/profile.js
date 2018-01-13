@@ -6,7 +6,7 @@ if (!checkIfLoggedIn()) {
 $(function() {
     //get the current user from session 
     var userSessionEntity = JSON.parse(sessionStorage.getItem("userSessionEntity"));
-    console.log(userSessionEntity.email);
+    console.log("email from session: " + userSessionEntity.email);
     //get connection to database
     // Initialize Firebase
     var firebaseConfig = {
@@ -19,9 +19,11 @@ $(function() {
     };
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
+    console.log("connected to firebase");
 
     //get the user details stored in database
     database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("value", function(snapshot) {
+        console.log("Read database");
         if (snapshot.val() === null) {
             console.log("Error!! record not found: " + snapshot);
             return;
