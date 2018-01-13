@@ -30,9 +30,9 @@ $(function() {
         } else {
             console.log("user found");
             //prepopulate the profile fields from data pulled from the table                   
-        	$("#validationName").value(snapshot.val().name);
+        	$("#validationName").text(snapshot.val().name);
         	$("#userImg").attr("src",snapshot.val().imageUrl);
-        	$("#phoneNum").value(snapshot.val().phone);
+        	$("#phoneNum").text(snapshot.val().phone);
         	//$("#customCheck1").attr("src",snapshot.val().imageUrl);
 
         }
