@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <!--  responsive behaviors -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!-- link to Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <!-- link to jQuery JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://apis.google.com/js/api:client.js"></script>
+    <title>Cramming Clique</title>
+</head>
+
+<body>
+    <!-- top navigation -->
+    <div id="topNav">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Title</a>
+            <form class="form-inline">
+                <button class="btn btn-outline-success" type="button"><a href="feed.html">Explore</a></button>
+                <!-- link to create an event -->
+                <button class="btn btn-outline-success" type="button"><a href="#">Create</a></button>
+                <!-- link to events near -->
+                <button class="btn btn-outline-success" type="button"><a href="#">Near me</a></button>
+                <!-- user dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        User
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="#">Profile</a>
+                    </div>
+                </div>
+            </form>
+        </nav>
+    </div>
+    <!-- main container -->
+    <div id="feedContainer">
+        <!-- search button -->
+        <div class="input-group">
+            <select class="custom-select" id="inputGroupSelect04">
+                <option selected>Subject</option>
+                <option value="1">Accounting</option>
+                <option value="2">Biology</option>
+                <option value="3">Geography</option>
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Search</button>
+            </div>
+        </div>
+        <!-- created events -->
+    </div>
+    <!-- bottom navigation -->
+    <div id="bottomNav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <!-- link to about pg -->
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- link to contact pg -->
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    Copyright &copy; 2018 TKRR
+                </span>
+            </div>
+        </nav>
+    </div>
+    <!-- link to jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- link to Popper CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- link to Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- link to .js in javascript folder-->
+    <script type="text/javascript" src="assets/javascript/login.js"></script>
+    <script type="text/javascript" src="assets/javascript/feed.js"></script>
+</body>
+
+</html>
