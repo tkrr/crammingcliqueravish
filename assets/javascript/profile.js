@@ -28,7 +28,7 @@ $(function() {
             console.log("Error!! record not found: " + snapshot);
             return;
         } else {
-            console.log("user found");
+            console.log("user found" + snapshot.val());
             //prepopulate the profile fields from data pulled from the table                   
         	$("#validationName").text(snapshot.val().name);
         	$("#userImg").attr("src",snapshot.val().imageUrl);
