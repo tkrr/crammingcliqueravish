@@ -9,7 +9,7 @@ $(function() {
     console.log("email from session: " + userSessionEntity.email);
     //get connection to database
     // Initialize Firebase
-    var firebaseConfig = {
+    /*var firebaseConfig = {
         apiKey: "AIzaSyCxL4l6YBouk-C92wcTeZ_sZbzQDcR00hE",
         authDomain: "crammingclique.firebaseapp.com",
         databaseURL: "https://crammingclique.firebaseio.com",
@@ -20,7 +20,7 @@ $(function() {
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
     console.log("connected to firebase");
-
+	*/
     //get the user details stored in database
     database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("value", function(snapshot) {
         console.log("Read database");
