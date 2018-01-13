@@ -25,8 +25,9 @@ $(function() {
     console.log("connected to firebase");
 	
     //get the user details stored in database
+
     database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("value", function(snapshot) {
-        console.log("Read database" + snapshot.val());
+        console.log(snapshot.val());
         if (snapshot.val() === null) {
             console.log("Error!! record not found: " + snapshot);
             return;
