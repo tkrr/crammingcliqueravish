@@ -56,7 +56,7 @@ function googleLogin(element) {
                         "receiveTextNotification": true
                     };
                     database.ref("/crammingUsers").push(crammingUser);
-                    window.location.href = "register.html";
+                    window.location.href = "profile.html";
                 }
 
             });
