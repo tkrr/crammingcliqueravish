@@ -32,13 +32,13 @@ function googleLogin(element) {
             console.log("google login successful");
 
             //Store the entity object in sessionStorage where it will be accessible from all pages of the site.
-            var userEntity = {};
-            userEntity.id = googleUser.getBasicProfile().getId();
-            userEntity.name = googleUser.getBasicProfile().getName();
-            userEntity.imageUrl = googleUser.getBasicProfile().getImageUrl();
-            userEntity.email = googleUser.getBasicProfile().getEmail();
-            userEntity.idToken = googleUser.getAuthResponse().id_token;
-            sessionStorage.setItem("userEntity", JSON.stringify(userEntity));
+            var userSessionEntity = {};
+            userSessionEntity.id = googleUser.getBasicProfile().getId();
+            userSessionEntity.name = googleUser.getBasicProfile().getName();
+            userSessionEntity.imageUrl = googleUser.getBasicProfile().getImageUrl();
+            userSessionEntity.email = googleUser.getBasicProfile().getEmail();
+            userSessionEntity.idToken = googleUser.getAuthResponse().id_token;
+            sessionStorage.setItem("userSessionEntity", JSON.stringify(userSessionEntity));
 
             database.ref("/crammingUsers").orderByChild("email").equalTo(googleUser.getBasicProfile().getEmail()).once("value", function(snapshot) {
                 if (snapshot.val() !== null) {
@@ -73,7 +73,7 @@ function signOut() {
 }
 
 function checkIfLoggedIn() {
-    if (sessionStorage.getItem("userEntity") == null) {
+    if (sessionStorage.getItem("userSessionEntity") == null) {
         return false;
     } else {
         return true;
