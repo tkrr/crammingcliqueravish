@@ -1,8 +1,4 @@
 $(function() {
-    if (sessionStorage.getItem("userSessionEntity") === null) {
-        window.location.href = "index.html";
-        return;
-    }
 
     //get the current user from session 
     var userSessionEntity = JSON.parse(sessionStorage.getItem("userSessionEntity"));
