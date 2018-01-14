@@ -1,10 +1,13 @@
 var path = window.location.pathname;
 var page = path.split("/").pop();
 
-if (page !== "index.html" && sessionStorage.getItem("userSessionEntity") === null) {
-    window.location.href = "index.html";
-    console.log("after redirect");
-}
+(function() {
+    if (page !== "index.html" && sessionStorage.getItem("userSessionEntity") === null) {
+        window.location.href = "index.html";
+        return;
+        console.log("after redirect");
+    }
+});
 
 firebaseConfig = {
     apiKey: "AIzaSyCxL4l6YBouk-C92wcTeZ_sZbzQDcR00hE",
