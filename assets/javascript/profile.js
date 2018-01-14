@@ -1,7 +1,4 @@
 $(function() {
-    var database = new Database();
-    database.initialize();
-
     if (sessionStorage.getItem("userSessionEntity") === null) {
         window.location.href = "index.html";
         return;
