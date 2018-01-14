@@ -3,7 +3,7 @@ var page = path.split("/").pop();
 
 if (page !== "index.html" && sessionStorage.getItem("userSessionEntity") === null) {
     window.location.href = "index.html";
-    return;
+    concole.log("after redirect");
 }
 
 firebaseConfig = {
