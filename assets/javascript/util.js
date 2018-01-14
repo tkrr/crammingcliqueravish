@@ -8,6 +8,7 @@ var page = path.split("/").pop();
         console.log("after redirect");
     }
 });
+console.log("after redirect check");
 
 firebaseConfig = {
     apiKey: "AIzaSyCxL4l6YBouk-C92wcTeZ_sZbzQDcR00hE",
