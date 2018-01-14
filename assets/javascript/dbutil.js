@@ -9,7 +9,7 @@ function Database() {
         },
         this.firebaseDB = null,
         this.initialize = function() {
-            firebase.initializeApp(firebaseConfig);
+            firebase.initializeApp(this.firebaseConfig);
             this.firebaseDB = firebase.database();
             console.log("connected to firebase");
         },
