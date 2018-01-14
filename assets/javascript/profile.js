@@ -49,7 +49,8 @@ $(function() {
                     database.ref("/crammingUsers").push(crammingUser);
         } else {
             console.log("user found" + snapshot.val().name);
-            snapshot.ref.update({ name: $("#validationName").val()  });
+            snapshot.ref.update({ "name": $("#validationName").val()  });
+        	console.log("DB updated");
         }
 
     });
