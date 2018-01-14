@@ -21,7 +21,7 @@ $(function() {
             $("#validationName").val(snapshot.val().name);
             $("#userImg").attr("src", snapshot.val().imageUrl);
             $("#phoneNum").val(snapshot.val().phone);
-            //$("#customCheck1").attr("src",snapshot.val().imageUrl);
+            $("#customCheck1").attr("checked", "checked");
 
         }
 
@@ -46,22 +46,28 @@ $(function() {
                     "imageUrl": userSessionEntity.imageUrl,
                     "email": userSessionEntity.email,
                     "phone": $("#phoneNum").val(),
-                    "receiveTextNotification": true
+                    "receiveTextNotification": (
+                        if ($("#customCheck1").attr("checked") === "checked")) ? true : false
                 };
                 database.ref("/crammingUsers").push(crammingUser);
             } else {
                 console.log("user found" + snapshot.val().name);
-                snapshot.forEach(function(child){
-                	child.ref.update({ "name": $("#validationName").val() });
+                snapshot.forEach(function(child) {
+                    child.ref.update({
+                        "name": $("#validationName").val(),
+                        "phone": $("#phoneNum").val(),
+                        "receiveTextNotification": (if ($("#customCheck1").attr("checked") === "checked")) ? true : false
+                    });
                 })
                 console.log("DB updated");
             }
-
+            //redirect the feed page
+            window.location.href = "feed.html";
         }, function(error) {
             console.log("error reading DB");
         });
 
-        //redirect the feed page	        
+        	        
     });
 
 
