@@ -34,30 +34,32 @@ $(function() {
         //validate the data
         //if error throw error back
         //update the database with details
-            	console.log("on click event");
+        console.log("on click event");
 
-        database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("child_added", function(snapshot) {
-        console.log(snapshot.val());
-        if (snapshot.val() === null) {
-            console.log("Error!! record not found: " + snapshot);
-                    var crammingUser = {
-                        "id": userSessionEntity.id,
-                        "name": $("#validationName").val(),
-                        "imageUrl": userSessionEntity.imageUrl,
-                        "email": userSessionEntity.email,
-                        "phone": $("#phoneNum").val(),
-                        "receiveTextNotification": true
-                    };
-                    database.ref("/crammingUsers").push(crammingUser);
-        } else {
-            console.log("user found" + snapshot.val().name);
-            snapshot.ref.update({ "name": $("#validationName").val()  });
-        	console.log("DB updated");
-        }
+        database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("value", function(snapshot) {
+            console.log(snapshot.val());
+            if (snapshot.val() === null) {
+                console.log("Error!! record not found: " + snapshot);
+                var crammingUser = {
+                    "id": userSessionEntity.id,
+                    "name": $("#validationName").val(),
+                    "imageUrl": userSessionEntity.imageUrl,
+                    "email": userSessionEntity.email,
+                    "phone": $("#phoneNum").val(),
+                    "receiveTextNotification": true
+                };
+                database.ref("/crammingUsers").push(crammingUser);
+            } else {
+                console.log("user found" + snapshot.val().name);
+                snapshot.forEach(function(child){
+                	child.ref.update({ "name": $("#validationName").val() });
+                })
+                console.log("DB updated");
+            }
 
-    }, function(error){
-    	console.log("error reading DB");
-    });
+        }, function(error) {
+            console.log("error reading DB");
+        });
 
         //redirect the feed page	        
     });
