@@ -1,7 +1,3 @@
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-};
-
 function Database() {
     this.firebaseConfig = {
             apiKey: "AIzaSyCxL4l6YBouk-C92wcTeZ_sZbzQDcR00hE",
@@ -17,9 +13,9 @@ function Database() {
         this.firebaseDB = firebase.database();
         console.log("connected to firebase");
     },
-    this.getUserByEmail = async function(email) {
+    this.getUserByEmail = function(email) {
         this.database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("child_added", function(snapshot) {
-            await sleep(10000);
+            new Promise(resolve => setTimeout(resolve, 10000));;
             console.log(snapshot.val());
             if (snapshot.val() === null) {
                 console.log("Error!! record not found: ");
@@ -30,4 +26,4 @@ function Database() {
             }
         }
     }
-};
+}
