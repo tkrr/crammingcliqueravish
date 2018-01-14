@@ -14,7 +14,7 @@ function Database() {
             console.log("connected to firebase");
         },
         this.getUserByEmail = function(email) {
-            this.database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("child_added", function(snapshot) {
+            this.firebaseDB.ref("/crammingUsers").orderByChild("email").equalTo(email).once("child_added", function(snapshot) {
                 new Promise(resolve => setTimeout(resolve, 10000));
                 console.log(snapshot.val());
                 if (snapshot.val() === null) {
