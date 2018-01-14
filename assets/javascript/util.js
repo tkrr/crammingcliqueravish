@@ -3,7 +3,7 @@ var page = path.split("/").pop();
 
 if (page !== "index.html" && sessionStorage.getItem("userSessionEntity") === null) {
     window.location.href = "index.html";
-    concole.log("after redirect");
+    console.log("after redirect");
 }
 
 firebaseConfig = {
@@ -19,3 +19,4 @@ firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database
 var database = firebase.database();
+console.log("DB loading done");
