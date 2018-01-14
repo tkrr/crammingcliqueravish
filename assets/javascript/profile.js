@@ -34,6 +34,8 @@ $(function() {
         //validate the data
         //if error throw error back
         //update the database with details
+            	console.log("on click event");
+
         database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("child_added", function(snapshot) {
         console.log(snapshot.val());
         if (snapshot.val() === null) {
@@ -53,6 +55,8 @@ $(function() {
         	console.log("DB updated");
         }
 
+    }, function(error){
+    	console.log("error reading DB");
     });
 
         //redirect the feed page	        
