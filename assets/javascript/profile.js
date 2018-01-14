@@ -46,8 +46,7 @@ $(function() {
                     "imageUrl": userSessionEntity.imageUrl,
                     "email": userSessionEntity.email,
                     "phone": $("#phoneNum").val(),
-                    "receiveTextNotification": (
-                        if ($("#customCheck1").attr("checked") === "checked")) ? true : false
+                    "receiveTextNotification": (if ($("#customCheck1").attr("checked") === "checked") ? true : false)
                 };
                 database.ref("/crammingUsers").push(crammingUser);
             } else {
@@ -56,7 +55,7 @@ $(function() {
                     child.ref.update({
                         "name": $("#validationName").val(),
                         "phone": $("#phoneNum").val(),
-                        "receiveTextNotification": (if ($("#customCheck1").attr("checked") === "checked")) ? true : false
+                        "receiveTextNotification": (if($("#customCheck1").attr("checked") === "checked") ? true : false)
                     });
                 })
                 console.log("DB updated");
