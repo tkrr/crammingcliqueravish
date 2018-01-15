@@ -8,7 +8,7 @@ $(function() {
     //get the user details stored in database
     async function loadProfileData() {
         var users = await getUserDetailsByEmail(userSessionEntity.email);
-        console.log("user found" + users);
+        console.log(users);
         //prepopulate the profile fields from data pulled from the table                   
         $("#validationName").val(users[1].name);
         $("#userImg").attr("src", users[1].imageUrl);
