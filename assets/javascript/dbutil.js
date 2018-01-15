@@ -15,7 +15,7 @@ var database = firebase.database();
 function getUserDetailsByEmail(email) {
     console.log("I am at 2");
 
-    return (database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("value", function(snapshot) {
+    return (database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value", function(snapshot) {
         console.log(snapshot.val());
         var users = {};
         if (snapshot.val() === null) {
