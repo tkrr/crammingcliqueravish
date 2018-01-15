@@ -28,7 +28,7 @@ function getUserDetailsByEmail(email) {
                 users.push(child.val());
             });
             console.log(users);
-            return users;
+            resolve(users);
         }
 
     }));
