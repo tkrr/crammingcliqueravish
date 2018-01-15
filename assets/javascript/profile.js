@@ -18,7 +18,7 @@ $(function() {
         $("#validationName").val(users[0].name);
         $("#userImg").attr("src", users[0].imageUrl);
         $("#phoneNum").val(users[0].phone);
-        $("#customCheck1").attr("checked", (users[0].receiveTextNotification === true ? "checked" : "unchecked"));
+        $("#customCheck1").attr("checked", users[0].receiveTextNotification);
 
 
     };
