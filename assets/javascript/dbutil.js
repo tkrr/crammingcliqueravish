@@ -16,7 +16,7 @@ async function getUserDetailsByEmail(email) {
     console.log("I am at 2");
 
     var usersSnapshot = await database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value");
-    console.log(users.val());
+    console.log(usersSnapshot.val());
     var users = [];
     if (usersSnapshot.val() === null) {
         console.log("Error!! record not found: ");
