@@ -17,7 +17,7 @@ function getUserDetailsByEmail(email) {
 
     return (database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value", function(snapshot) {
         console.log(snapshot.val());
-        var users = {};
+        var users = [];
         if (snapshot.val() === null) {
             console.log("Error!! record not found: " + snapshot);
             return null;
