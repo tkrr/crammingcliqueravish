@@ -11,3 +11,23 @@ firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database
 var database = firebase.database();
+
+function getUserDetailsByEmail(email) {
+    console.log("I am at 2");
+
+    return (database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("value", function(snapshot) {
+        console.log(snapshot.val());
+        var users = {};
+        if (snapshot.val() === null) {
+            console.log("Error!! record not found: " + snapshot);
+            return null;
+        } else {
+            console.log("user found");
+            snapshot.forEach(function(child){
+                users.push(child);
+            });
+            return users;
+        }
+
+    }));
+};

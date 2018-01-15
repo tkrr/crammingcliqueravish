@@ -6,22 +6,18 @@ $(function() {
     //get connection to database
 
     //get the user details stored in database
-    database.ref("/crammingUsers").orderByChild("email").equalTo(userSessionEntity.email).once("child_added", function(snapshot) {
-        console.log(snapshot.val());
-        if (snapshot.val() === null) {
-            console.log("Error!! record not found: " + snapshot);
-            return;
-        } else {
-            console.log("user found" + snapshot.val().name);
-            //prepopulate the profile fields from data pulled from the table                   
-            $("#validationName").val(snapshot.val().name);
-            $("#userImg").attr("src", snapshot.val().imageUrl);
-            $("#phoneNum").val(snapshot.val().phone);
-            $("#customCheck1").attr("checked", "checked");
+    async function loadProfileData() {
+        var users = await getUserDetailsByEmail(userSessionEntity.email);
+        console.log("user found" + users);
+        //prepopulate the profile fields from data pulled from the table                   
+        $("#validationName").val(users[1].name);
+        $("#userImg").attr("src", users[1].imageUrl);
+        $("#phoneNum").val(users[1].phone);
+        $("#customCheck1").attr("checked", (users[1].receiveTextNotification === true ? "checked" : "unchecked"));
+    };
+    loadProfileData();
 
-        }
 
-    });
 
 
     //save button clink event
@@ -62,7 +58,7 @@ $(function() {
             console.log("error reading DB");
         });
 
-        	        
+
     });
 
 
