@@ -37,15 +37,21 @@ async function updateUserDetailsByEmail(email, userDetails) {
 
     var usersSnapshot = await database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value");
     console.log(usersSnapshot.val());
-    
+
     if (usersSnapshot.val() === null) {
         console.log("Error!! record not found: ");
         return false;
     } else {
         console.log("user found");
-        usersSnapshot.forEach(function(child){
+        usersSnapshot.forEach(function(child) {
             child.update(userDetails);
         });
         return true;
     }
+};
+
+async function insertNewUserDetails(userDetails) {
+    console.log("I am at 2");
+
+    await database.ref("/crammingUsers").push(crammingUser);
 };
