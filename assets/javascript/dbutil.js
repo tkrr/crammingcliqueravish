@@ -24,7 +24,7 @@ function getUserDetailsByEmail(email) {
         } else {
             console.log("user found");
             snapshot.forEach(function(child){
-                users.push(child);
+                users.push(child.val());
             });
             return users;
         }
