@@ -12,24 +12,24 @@ firebase.initializeApp(firebaseConfig);
 // Create a variable to reference the database
 var database = firebase.database();
 
-function getUserDetailsByEmail(email) {
+async function getUserDetailsByEmail(email) {
     console.log("I am at 2");
 
-    return (database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value", function(snapshot) {
-        console.log(snapshot.val());
-        var users = [];
-        if (snapshot.val() === null) {
-            console.log("Error!! record not found: " + snapshot);
-            return null;
-        } else {
-            console.log("user found");
-            snapshot.forEach(function(child){
-                console.log(child.val());
-                users.push(child.val());
-            });
-            console.log(users);
-            resolve(users);
-        }
+    var usersSnapshot = await database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value");
+    console.log(users.val());
+    var users = [];
+    if (usersSnapshot.val() === null) {
+        console.log("Error!! record not found: ");
+        return null;
+    } else {
+        console.log("user found");
+        usersSnapshot.forEach(function(child) {
+            console.log(child.val());
+            users.push(child.val());
+        });
+        console.log(users);
+        return users;
+    }
 
-    }));
+
 };
