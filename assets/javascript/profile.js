@@ -57,7 +57,7 @@ $(function() {
         } else {
             console.log("user found" + users[0].name);
             try {
-                var updateStatus = await updateUserDetailsByEmail(email, {
+                var updateStatus = await updateUserDetailsByEmail(userSessionEntity.email, {
                     "name": $("#validationName").val(),
                     "phone": $("#phoneNum").val(),
                     "receiveTextNotification": $("#customCheck1").is(":checked")
