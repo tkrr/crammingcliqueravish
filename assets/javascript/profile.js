@@ -28,7 +28,7 @@ loadProfileData();
 
 
 //save button clink event
-$(document).on("click", "#saveProfileButton", function(event) {
+$(document).on("click", "#saveProfileButton", async function(event) {
     event.preventDefault();
     //validate the data
     //if error throw error back
