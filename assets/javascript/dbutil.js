@@ -44,7 +44,7 @@ async function updateUserDetailsByEmail(email, userDetails) {
     } else {
         console.log("user found");
         usersSnapshot.forEach(function(child) {
-            child.update(userDetails);
+            child.ref.update(userDetails);
         });
         return true;
     }
