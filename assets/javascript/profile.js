@@ -15,7 +15,7 @@ $(function() {
             console.log("I am at 6");
         }
         //prepopulate the profile fields from data pulled from the table                   
-        $("#validationName").val(users[0].name);
+        $("#validationName").val(users[0].name || );
         $("#userImg").attr("src", users[0].imageUrl);
         $("#phoneNum").val(users[0].phone);
         $("#customCheck1").attr("checked", (users[0].receiveTextNotification === true ? "checked" : "unchecked"));
@@ -57,7 +57,7 @@ $(function() {
         } else {
             console.log("user found" + users[0].name);
             try {
-                var updateStatus = await updateUserDetailsbyEmail(email, {
+                var updateStatus = await updateUserDetailsByEmail(email, {
                     "name": $("#validationName").val(),
                     "phone": $("#phoneNum").val(),
                     "receiveTextNotification": $("#customCheck1").is(":checked")
