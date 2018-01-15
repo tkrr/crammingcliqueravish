@@ -2,7 +2,7 @@ $(function() {
 
     //get the current user from session 
     var userSessionEntity = JSON.parse(sessionStorage.getItem("userSessionEntity"));
-    console.log("email from session: " + userSessionEntity.email);
+    console.log("email from session: ");
     //get connection to database
 
     //get the user details stored in database
