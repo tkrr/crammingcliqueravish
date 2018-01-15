@@ -1,6 +1,6 @@
 var path = window.location.pathname;
 var page = path.split("/").pop();
-(function() {
+function checkLoggedIn() {
 	console.log(page);
 	console.log(sessionStorage.getItem("userSessionEntity"))
     if (page != "index.html" && sessionStorage.getItem("userSessionEntity") == null) {
@@ -9,4 +9,5 @@ var page = path.split("/").pop();
         return;
 
     }
-});
+};
+checkLoggedIn();
