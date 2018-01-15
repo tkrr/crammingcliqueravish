@@ -30,6 +30,22 @@ async function getUserDetailsByEmail(email) {
         console.log(users);
         return users;
     }
+};
 
+async function updateUserDetailsByEmail(email, userDetails) {
+    console.log("I am at 2");
 
+    var usersSnapshot = await database.ref("/crammingUsers").orderByChild("email").equalTo(email).once("value");
+    console.log(usersSnapshot.val());
+    
+    if (usersSnapshot.val() === null) {
+        console.log("Error!! record not found: ");
+        return false;
+    } else {
+        console.log("user found");
+        usersSnapshot.forEach(function(child){
+            child.update(userDetails);
+        });
+        return true;
+    }
 };
