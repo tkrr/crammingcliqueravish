@@ -55,3 +55,37 @@ async function insertNewUserDetails(userDetails) {
 
     await database.ref("/crammingUsers").push(crammingUser);
 };
+
+async function insertNewEventDetails(crammingClique) {
+    console.log("I am at 2");
+
+    try {
+        var newCliqueSnapshot = await database.ref("/crammingClique").push(crammingClique);
+        await newCliqueSnapshot.ref.update({
+            "id": newCliqueSnapshot.key
+        });
+        return true;
+    } catch (e) {
+        return false;
+    }
+};
+
+async function getAllCliques() {
+    console.log("I am at 2");
+
+    var cliqueSnapshot = await database.ref("/crammingClique").orderByChild("date").once("value");
+    console.log(cliqueSnapshot.val());
+    var cliques = [];
+    if (cliqueSnapshot.val() === null) {
+        console.log("Error!! record not found: ");
+        return null;
+    } else {
+        console.log("cliques found");
+        cliqueSnapshot.forEach(function(clique) {
+            console.log(clique.val());
+            cliques.push(clique.val());
+        });
+        console.log(cliques);
+        return cliques;
+    }
+};

@@ -26,7 +26,7 @@
     <script src="https://apis.google.com/js/api:client.js"></script>
     <!-- link to load google firebase for data persistency -->
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnu3Zo-ouryCvnyyujvA8d3e4ANJ2d824&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnu3Zo-ouryCvnyyujvA8d3e4ANJ2d824&libraries=places" async defer></script>
     <title>Cramming Clique</title>
 </head>
 
@@ -72,7 +72,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="autocomplete"  onFocus="geolocate()" type="text" class="validate">
+                        <input id="autocomplete"  type="text" >
                         <label for="autocomplete">Location</label>
                     </div>
                 </div>
@@ -85,6 +85,9 @@
                         <input id="time" type="text" class="validate">
                         <label for="time">Time</label>
                     </div>
+                </div>
+                <div class="row">
+                    <button id="btnCreateEvent" class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
                 </div>
             </form>
         </div>
