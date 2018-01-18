@@ -17,7 +17,7 @@ $(function() {
             divClique.append($("<p>").addClass("card-text").attr("id", "cliqueDescription").text(clique.description));
             divClique.append($("<h6>").addClass("card-text").attr("id", "cliqueAttendees").text(clique.attendees.length + " people attending"));
 		    //for events for which user is the owner, have manage button
-		    if(/*userSessionEntity.email*/"ravish1.rao@gmail.com" === clique.host){
+		    if(userSessionEntity.email/*"ravish1.rao@gmail.com"*/ === clique.host){
 		    	divClique.append($("<btn>").addClass("btn btn-primary").attr("id", "cliqueManage").text("Manage"));
 		    } else {
     //for events for which user is the owner, remove the register button
@@ -25,7 +25,7 @@ $(function() {
 
 		    	var attending = false;
 		    	for(i=0; i<clique.attendees.length; i++){
-		    		if (/*userSessionEntity.email*/"ravish1.rao@gmail.com" === clique.attendees[i].attendee){
+		    		if (userSessionEntity.email/*"ravish1.rao@gmail.com"*/ === clique.attendees[i].attendee){
 		    			attending = true;
 		    		}
 		    	}
