@@ -20,6 +20,9 @@ $(function() {
 		    if(/*userSessionEntity.email*/"ravish1.rao@gmail.com" === clique.host){
 		    	divClique.append($("<btn>").addClass("btn btn-primary").attr("id", "cliqueManage").text("Manage"));
 		    } else {
+    //for events for which user is the owner, remove the register button
+    //for events for which user is already attending, remove the register button and replace it with derister button
+
 		    	var attending = false;
 		    	for(i=0; i<clique.attendees.length; i++){
 		    		if (/*userSessionEntity.email*/"ravish1.rao@gmail.com" === clique.attendees[i].attendee){
@@ -36,8 +39,6 @@ $(function() {
         });
     };
     loadAllCliques();
-    //for events for which user is the owner, remove the register button
-    //for events for which user is already attending, remove the register button and replace it with derister button
 
     //setup the click event handler on register button
     //validate again to make sure user us not already marked to register

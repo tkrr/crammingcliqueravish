@@ -21,14 +21,14 @@ $(function() {
 
         var crammingClique = {
             "id": null,
-            "host": "ravish.rao@gmail.com",//userSessionEntity.email,
+            "host": userSessionEntity.email,//"ravish.rao@gmail.com",//,
             "title": $("#eventTitle").val(),
             "description": $("#description").val(),
             "where": $("#autocomplete").val(),
             "date": $("#date").val(),
             "time": $("#time").val(),
             "attendees": [{
-                "attendee": "ravish.rao@gmail.com"//userSessionEntity.email
+                "attendee": userSessionEntity.email//"ravish.rao@gmail.com"//
             }]
         };
 
